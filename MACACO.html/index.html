@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Avaliação de Saúde</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body class="min-h-screen bg-red-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+        <div class="space-y-12">
+            <div class="text-center space-y-4">
+                <h1 class="text-4xl font-bold text-red-800">Sistema de Avaliação de Saúde</h1>
+                <p class="text-xl text-red-700">Monitore sua saúde de forma inteligente e preventiva</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-red-50 p-6 rounded-lg shadow-md border border-red-200">
+                    <i data-lucide="scale" class="w-8 h-8 text-red-600 mb-4 inline-block"></i>
+                    <h3 class="text-xl font-semibold text-red-800 mb-2">IMC e Saúde</h3>
+                    <p class="text-red-700">O Índice de Massa Corporal (IMC) é um indicador importante da sua saúde.</p>
+                </div>
+                <div class="bg-red-50 p-6 rounded-lg shadow-md border border-red-200">
+                    <i data-lucide="droplets" class="w-8 h-8 text-red-600 mb-4 inline-block"></i>
+                    <h3 class="text-xl font-semibold text-red-800 mb-2">Tipo Sanguíneo</h3>
+                    <p class="text-red-700">Conhecer seu tipo sanguíneo é essencial para emergências médicas.</p>
+                </div>
+                <div class="bg-red-50 p-6 rounded-lg shadow-md border border-red-200">
+                    <i data-lucide="brain" class="w-8 h-8 text-red-600 mb-4 inline-block"></i>
+                    <h3 class="text-xl font-semibold text-red-800 mb-2">Histórico Médico</h3>
+                    <p class="text-red-700">Manter um registro atualizado ajuda os profissionais de saúde.</p>
+                </div>
+            </div>
+
+            <div class="bg-red-100 p-8 rounded-lg shadow-lg border border-red-300">
+                <h2 class="text-2xl font-bold text-red-800 mb-4">Por que fazer uma avaliação de saúde?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="heart" class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"></i>
+                        <p class="text-red-700">Prevenção de doenças através do monitoramento regular</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="activity" class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"></i>
+                        <p class="text-red-700">Acompanhamento personalizado baseado no seu perfil</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="bike" class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"></i>
+                        <p class="text-red-700">Recomendações específicas para melhorar seu estilo de vida</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="alert-triangle" class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"></i>
+                        <p class="text-red-700">Identificação precoce de fatores de risco</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center">
+                <a href="/login.html" class="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 flex items-center gap-2 text-lg">
+                    <i data-lucide="log-in" class="w-5 h-5"></i>
+                    Iniciar Avaliação
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

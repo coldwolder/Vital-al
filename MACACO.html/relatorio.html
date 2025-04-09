@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Saúde</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body class="min-h-screen bg-red-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+        <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+            <div class="space-y-6">
+                <h2 class="text-2xl font-bold flex items-center gap-2 text-red-800">
+                    <i data-lucide="clipboard-list" class="w-6 h-6"></i>
+                    Relatório de Saúde
+                </h2>
+                                
+                <div class="bg-red-50 p-6 rounded-lg shadow-lg space-y-4 border border-red-200">
+                    <div>
+                        <h3 class="text-xl font-semibold text-red-800">Dados Pessoais</h3>
+                        <p class="text-red-700" id="nome"></p>
+                        <p class="text-red-700" id="idade"></p>
+                        <p class="text-red-700" id="tipoSanguineo"></p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-red-800">Dados Antropométricos</h3>
+                        <p class="text-red-700" id="peso"></p>
+                        <p class="text-red-700" id="altura"></p>
+                        <p class="text-red-700" id="imc"></p>
+                    </div>
+                    <div class="mt-6 p-4 bg-red-100 rounded-lg border border-red-300">
+                        <h3 class="text-lg font-semibold flex items-center gap-2 text-red-800">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-red-600"></i>
+                            Recomendações
+                        </h3>
+                        <ul class="list-disc pl-5 mt-2 space-y-2 text-red-700" id="recomendacoes">
+                            <li>Mantenha exames de rotina em dia</li>
+                            <li>Mantenha uma alimentação equilibrada</li>
+                            <li>Pratique atividades físicas regularmente</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mt-6">
+                    <a href="/forms.html" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Novo Formulário</a>
+                    <a href="/index.html" class="px-4 py-2 bg-red-100 text-red-700 rounded hover:bg-red-200 flex items-center gap-2">
+                        <i data-lucide="home" class="w-4 h-4"></i>
+                        Voltar para Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        lucide.createIcons();
+
+        // Get URL parameters from the form submission
+        const urlParams = new URLSearchParams(window.location.search);
+        const nome = urlParams.get('nome') || 'Não informado';
+        const idade = urlParams.get('idade') || '0';
+        const tipoSanguineo = urlParams.get('tipoSanguineo') || 'Não informado';
+        const peso = urlParams.get('peso') || '0';
+        const altura = urlParams.get('altura') || '0';
+        const exercicios = urlParams.get('exercicios') || '';
+
+        // Calculate IMC
+        const alturaM = parseFloat(altura) / 100;
+        const imc = peso && alturaM ? (parseFloat(peso) / (alturaM * alturaM)).toFixed(1) : '0';
+        let imcClass = '';
+        if (imc < 18.5) imcClass = 'Abaixo do peso';
+        else if (imc < 25) imcClass = 'Peso normal';
+        else if (imc < 30) imcClass = 'Sobrepeso';
+        else if (imc < 35) imcClass = 'Obesidade grau I';
+        else if (imc < 40) imcClass = 'Obesidade grau II';
+        else imcClass = 'Obesidade grau III';
+
+        // Populate report
+        document.getElementById('nome').textContent = `Nome: ${nome}`;
+        document.getElementById('idade').textContent = `Idade: ${idade} anos`;
+        document.getElementById('tipoSanguineo').textContent = `Tipo Sanguíneo: ${tipoSanguineo}`;
+        document.getElementById('peso').textContent = `Peso: ${peso} kg`;
+        document.getElementById('altura').textContent = `Altura: ${altura} cm`;
+        document.getElementById('imc').textContent = `IMC: ${imc} - ${imcClass}`;
+
+        // Dynamic recommendations
+        const recomendacoes = document.getElementById('recomendacoes');
+        if (imc > 25) {
+            recomendacoes.innerHTML += '<li>Considere consultar um nutricionista para orientação alimentar</li>';
+        }
+        if (exercicios === 'sedentario') {
+            recomendacoes.innerHTML += '<li>Recomenda-se iniciar atividade física regular com orientação profissional</li>';
+        }
+    </script>
+</body>
+</html>

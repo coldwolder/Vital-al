@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Avaliação de Saúde</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body class="min-h-screen bg-red-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+        <div class="max-w-md mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-red-800">Login</h2>
+                <p class="text-red-600 mt-2">Acesse sua conta para continuar</p>
+            </div>
+
+            <form action="/forms.html" class="space-y-6">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-red-700">E-mail</label>
+                    <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-red-300 shadow-sm focus:border-red-500 focus:ring focus:ring-red-200" required>
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-red-700">Senha</label>
+                    <input type="password" id="password" name="password" class="mt-1 block w-full rounded-md border-red-300 shadow-sm focus:border-red-500 focus:ring focus:ring-red-200" required>
+                </div>
+                <button type="submit" class="w-full px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Entrar</button>
+            </form>
+
+            <a href="/index.html" class="mt-4 w-full px-4 py-2 bg-red-100 text-red-700 rounded hover:bg-red-200 flex items-center justify-center gap-2 inline-block text-center">
+                <i data-lucide="home" class="w-4 h-4"></i>
+                Voltar para Home
+            </a>
+        </div>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
